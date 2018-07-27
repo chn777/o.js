@@ -1352,7 +1352,8 @@
             ajaxRequest.onreadystatechange = function () {
                 //check the http status
                 if (ajaxRequest.readyState === 4) {
-                    if (ajaxRequest.status >= 200 && ajaxRequest.status < 300) {
+		    //update status range to 400 , in case of the server throw exception that we can not catch
+                    if (ajaxRequest.status >= 200 && ajaxRequest.status <= 400) {
 
                         //dealing with the response
                         if (ajaxRequest.status !== 204) {
